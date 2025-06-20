@@ -3,6 +3,7 @@ import Banner from '../Components/Banner/Banner';
 import OurServices from '../Components/OurServices/OurServices';
 import HowItWorks from '../Components/HowItWorks/HowItWorks';
 import ClientSlider from '../Components/ClientSlider/ClientSlider';
+import BenefitsSection from '../Components/FeatureCards/BenefitsSection';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <HowItWorks></HowItWorks>
             <OurServices></OurServices>
             <ClientSlider></ClientSlider>
+            <BenefitsSection></BenefitsSection>
         </div>
     );
 };
