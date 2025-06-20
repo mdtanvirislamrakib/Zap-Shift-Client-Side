@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { FaBuilding, FaMapMarkedAlt, FaMoneyBillWave, FaUndoAlt, FaWarehouse } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
 
-
 const services = [
   {
     title: "Express & Standard Delivery",
@@ -39,23 +38,27 @@ const services = [
 
 const OurServices = () => {
   return (
-    <section className="py-16 bg-[#03373D] rounded-3xl mt-10" id="services">
+    <section className="py-16 rounded-4xl mt-10 bg-[#03373D]" id="services">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-white mb-4">Our Services</h2>
-        <p className="text-gray-100 max-w-2xl mx-auto mb-10">
+        <p className="text-gray-200 max-w-2xl mx-auto mb-10">
           Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time.
         </p>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, idx) => (
+          {services.map((service) => (
             <motion.div
-              key={idx}
+              key={service.title}
               whileHover={{ scale: 1.05 }}
-              className="card bg-base-200 shadow-md border border-base-300 p-6 text-left hover:shadow-xl transition-all duration-300"
+              className="card bg-base-200 text-center shadow-md border border-base-300 p-6 transition-all duration-300 hover:bg-[#CAEB66]"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-primary mb-2">{service.title}</h3>
-              <p className="text-base-content">{service.description}</p>
+              <div className="flex flex-col items-center justify-center h-full gap-4">
+                <div className="p-4 rounded-full bg-gradient-to-br from-white to-gray-100 shadow-inner">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-primary">{service.title}</h3>
+                <p className="text-base-content">{service.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>

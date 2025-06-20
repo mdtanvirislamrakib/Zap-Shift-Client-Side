@@ -37,7 +37,7 @@ const HowItWorks = () => {
                 <div className='bg-gray-100 rounded-2xl px-8 py-4 drop-shadow-sm hover:scale-105 transition-all duration-150 space-y-6'>
                     <p><MdOutlineDeliveryDining size={45} /></p>
                     <div className='space-y-4'>
-                        <h3 className='text-xl font-bold'>Booking Pick & Drop</h3>
+                        <h3 className='text-xl font-bold'>Booking SME & Corporate</h3>
                         <p className='text-gray-800 text-sm'>From personal packages to business shipments — we deliver on time, every time.</p>
                     </div>
                 </div>
