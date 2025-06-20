@@ -30,7 +30,7 @@ const features = [
 const BenefitsSection = () => {
     return (
         <section className="py-16">
-            <div className="max-w-6xl mx-auto px-8 grid gap-10">
+            <div className=" px-8 grid gap-10">
                 {features.map((feature, idx) => (
                     <div
                         data-aos={feature.fade}
