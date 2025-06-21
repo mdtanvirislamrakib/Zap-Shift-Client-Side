@@ -4,7 +4,8 @@ import { Link } from "react-router";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 
-const Login = () => {
+const Registar = () => {
+
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const onSubmit = data => {
@@ -20,8 +21,8 @@ const Login = () => {
                     <ProfastLogo></ProfastLogo>
                 </div>
                 {/* Welcome */}
-                <h2 className="text-3xl font-bold mb-2">Welcome Back</h2>
-                <p className="mb-7 text-gray-700">Login with Profast</p>
+                <h2 className="text-3xl font-bold mb-2">Create an Account</h2>
+                <p className="mb-7 text-gray-700">Register with Profast</p>
                 {/* Form */}
                 <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                     <div>
@@ -78,9 +79,9 @@ const Login = () => {
                 </form>
                 <div className="mt-5 flex flex-col items-center">
                     <div className="text-sm text-gray-700 mb-1">
-                        Don&apos;t have any account?{" "}
-                        <Link to="/registar" className="text-lime-600 font-semibold hover:underline">
-                            Register
+                        Already have any account?{" "}
+                        <Link to="/login" className="text-lime-600 font-semibold hover:underline">
+                            Login
                         </Link>
                     </div>
                     <div className="flex items-center my-2 w-full">
@@ -106,4 +107,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Registar;
