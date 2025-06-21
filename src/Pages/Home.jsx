@@ -5,6 +5,7 @@ import HowItWorks from '../Components/HowItWorks/HowItWorks';
 import ClientSlider from '../Components/ClientSlider/ClientSlider';
 import BenefitsSection from '../Components/FeatureCards/BenefitsSection';
 import BeMerchant from '../Components/BeMarchent/BeMarchent';
+import CustomerReview from '../Components/CustomerReviews/CustomerReview';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <ClientSlider></ClientSlider>
             <BenefitsSection></BenefitsSection>
             <BeMerchant></BeMerchant>
+            <CustomerReview></CustomerReview>
         </div>
     );
 };
