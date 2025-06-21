@@ -3,14 +3,39 @@ import ProfastLogo from "../../Shared/ProFastLogo/ProfastLogo";
 import { Link } from "react-router";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
+import UseAuth from "../../Hooks/UseAuth";
 
 const Registar = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
+    const { createUser, loginWithGoogle } = UseAuth()
+
     const onSubmit = data => {
         console.log(data);
+        createUser(data?.email, data?.password)
+            .then(result => {
+                console.log(result?.user);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
+
+
+    // google login
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+        .then(result => {
+            console.log(result?.user);
+        })
+        .then(err => {
+            console.log(err);
+        })
+    }
+
+
+
 
     return (
         <div className=" bg-white w-full">
@@ -90,6 +115,7 @@ const Registar = () => {
                         <div className="flex-1 border-t border-gray-200"></div>
                     </div>
                     <button
+                        onClick={handleGoogleLogin}
                         type="button"
                         className="w-full bg-gray-100 flex items-center justify-center gap-2 border border-gray-200 rounded py-2 text-sm font-medium hover:bg-gray-200 transition"
                     >
