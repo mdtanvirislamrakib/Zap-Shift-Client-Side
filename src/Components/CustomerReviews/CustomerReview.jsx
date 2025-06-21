@@ -48,7 +48,7 @@ const testimonials = [
 
 const CustomerReview = () => {
   return (
-    <section className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
+    <section className=" py-16 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <img src={image} alt="" className="mx-auto mb-8" />
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -59,7 +59,7 @@ const CustomerReview = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto relative px-4">
+      <div className="max-w-6xl mx-auto px-4">
         <Swiper
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={30}
@@ -89,13 +89,12 @@ const CustomerReview = () => {
               slidesPerView: 2.5,
             },
           }}
-          className="pb-16"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
               {({ isActive }) => (
                 <div
-                  className={`flex flex-col items-center bg-white rounded-2xl p-8 h-full transition-all duration-300 shadow-md
+                  className={`flex flex-col items-center bg-white rounded-2xl p-8 h-full transition-all duration-300 shadow-md mb-12
                     ${isActive ? "opacity-100 scale-100" : "opacity-40 scale-95"}
                   `}
                 >
@@ -124,23 +123,25 @@ const CustomerReview = () => {
           ))}
         </Swiper>
 
-        {/* Custom Navigation & Pagination */}
-        <div className="flex justify-center items-center mt-12">
-          <button
-            className="custom-swiper-prev flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            aria-label="Previous testimonial"
-          >
-            <MdArrowBackIosNew className="text-lg" />
-          </button>
-          
-          <div className="custom-swiper-pagination mx-6 flex items-center"></div>
-          
-          <button
-            className="custom-swiper-next flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            aria-label="Next testimonial"
-          >
-            <MdArrowForwardIos className="text-lg" />
-          </button>
+        {/* Fixed Bottom Navigation */}
+        <div className="absolute bottom-8 left-0 right-0">
+          <div className="flex justify-center items-center w-52 mx-auto">
+            <button
+              className="custom-swiper-prev flex items-center justify-center w-16 h-7 rounded-full bg-white shadow-md hover:bg-lime-500 text-gray-700 transition-colors duration-200 focus:outline-none mx-2"
+              aria-label="Previous testimonial"
+            >
+              <MdArrowBackIosNew className="text-lg" />
+            </button>
+            
+            <div className="custom-swiper-pagination mx-4 flex items-center justify-center"></div>
+            
+            <button
+              className="custom-swiper-next flex items-center justify-center w-16 h-7 rounded-full bg-white shadow-md hover:bg-lime-500 text-gray-700 transition-colors duration-200 focus:outline-none mx-2"
+              aria-label="Next testimonial"
+            >
+              <MdArrowForwardIos className="text-lg" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

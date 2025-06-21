@@ -6,6 +6,7 @@ import ClientSlider from '../Components/ClientSlider/ClientSlider';
 import BenefitsSection from '../Components/FeatureCards/BenefitsSection';
 import BeMerchant from '../Components/BeMarchent/BeMarchent';
 import CustomerReview from '../Components/CustomerReviews/CustomerReview';
+import FaqSection from '../Components/FaqSection/FaqSection';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <BenefitsSection></BenefitsSection>
             <BeMerchant></BeMerchant>
             <CustomerReview></CustomerReview>
+            <FaqSection></FaqSection>
         </div>
     );
 };
