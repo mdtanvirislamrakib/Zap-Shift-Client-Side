@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const navItems = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
+        <li><NavLink to={"/coverage"}>Coverage</NavLink></li>
         <li><NavLink to={"/about"}>About Us</NavLink></li>
     </>
 
@@ -39,6 +40,7 @@ const Navbar = () => {
             </div>
             {
                 user ? <div className="navbar-end">
+                    <p>{user?.email}</p>
                     <button onClick={handleLogout} className="btn">Logout</button>
                 </div> : <div className="navbar-end">
                     <Link to="/login" className="btn">Login</Link>
