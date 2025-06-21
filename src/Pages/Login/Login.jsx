@@ -1,7 +1,16 @@
 import React from "react";
 import ProfastLogo from "../../Shared/ProFastLogo/ProfastLogo";
+import { Link } from "react-router";
+import { IoAlertCircleOutline } from "react-icons/io5";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const { register, handleSubmit, formState: { errors }, } = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+    }
+
     return (
         <div className=" bg-white w-full">
             {/* Left: Login Form */}
@@ -14,25 +23,51 @@ const Login = () => {
                 <h2 className="text-3xl font-bold mb-2">Welcome Back</h2>
                 <p className="mb-7 text-gray-700">Login with Profast</p>
                 {/* Form */}
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label className="block text-sm font-medium mb-1">Email</label>
                         <input
+                            {...register("email", { required: true })}
                             type="email"
                             className="w-full border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-300"
                             placeholder="Email"
                         />
+                        {errors.email?.type === "required" && (
+                            <div role="alert" className="text-red-600 font-semibold flex gap-2 items-center mt-1">
+                                <IoAlertCircleOutline size={15} />
+                                <p>Email is required</p>
+                            </div>
+                        )}
+
                     </div>
                     <div>
                         <label className="block text-sm font-medium mb-1">Password</label>
                         <input
+                            {...register("password", {
+                                required: true,
+                                minLength: 6
+                            })}
                             type="password"
                             className="w-full border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-300"
                             placeholder="Password"
                         />
+
+                        {errors.password?.type === "required" && (
+                            <div role="alert" className="text-red-600 font-semibold flex gap-2 items-center mt-1">
+                                <IoAlertCircleOutline size={15} />
+                                <p>Password is required</p>
+                            </div>
+                        )}
+
+                        {errors.password?.type === "minLength" && (
+                            <div role="alert" className="text-red-600 font-semibold flex gap-2 items-center mt-1">
+                                <IoAlertCircleOutline size={15} />
+                                <p>Password must be 6 charecters</p>
+                            </div>
+                        )}
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500">Forgot Password?</span>
+                        <Link className="text-gray-500">Forgot Password?</Link>
                     </div>
                     <button
                         type="submit"
@@ -66,7 +101,7 @@ const Login = () => {
                     </button>
                 </div>
             </div>
-            
+
         </div>
     );
 };

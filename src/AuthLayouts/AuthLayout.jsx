@@ -13,7 +13,7 @@ const AuthLayout = () => {
             </div>
 
             {/* Right: Illustration (50%) */}
-            <div className='hidden md:flex items-center justify-center bg-gray-50 p-8'>
+            <div className='hidden md:flex min-h-screen items-center justify-center bg-gray-50 p-8'>
                 <div className="border-2 border-dashed border-gray-200 rounded-xl p-8">
                     <img
                         src={authImage}
