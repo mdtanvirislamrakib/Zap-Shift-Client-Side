@@ -5,10 +5,13 @@ import Footer from '../Components/Footer/Footer';
 
 const RootLayout = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div className=' bg-gray-100/45 pt-10 '>
+            <div className='max-w-11/12 mx-auto'>
+                <Navbar></Navbar>
+                <Outlet></Outlet>
+                <Footer></Footer>
+            </div>
+
         </div>
     );
 };
