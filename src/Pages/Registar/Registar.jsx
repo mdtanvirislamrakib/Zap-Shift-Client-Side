@@ -1,6 +1,6 @@
 import React from "react";
 import ProfastLogo from "../../Shared/ProFastLogo/ProfastLogo";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import UseAuth from "../../Hooks/UseAuth";
@@ -11,11 +11,18 @@ const Registar = () => {
 
     const { createUser, loginWithGoogle } = UseAuth()
 
+    const navigate = useNavigate();
+
+
     const onSubmit = data => {
         console.log(data);
         createUser(data?.email, data?.password)
             .then(result => {
                 console.log(result?.user);
+                if(result?.user?.email) {
+                    navigate("/")
+                }
+
             })
             .catch(err => {
                 console.log(err);
