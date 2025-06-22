@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Registar from "../Pages/Registar/Registar";
 import PrivetRouts from "../Routs/PrivetRouts";
 import Coverage from "../Pages/Coverage/Coverage";
+import Loader from "../Components/Loader/Loader";
 
 
 export const router = createBrowserRouter([
@@ -21,7 +22,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/coverage',
-        element: <Coverage></Coverage>
+        loader: () => fetch("./area.json"),
+        hydrateFallbackElement: <Loader></Loader>,
+        element: <Coverage></Coverage>,
       }
     ]
   },
