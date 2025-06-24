@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router";
 import UseAuth from "../../Hooks/UseAuth";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const SendParcel = () => {
   const {
@@ -13,6 +14,8 @@ const SendParcel = () => {
   } = useForm();
 
   const { user } = UseAuth();
+
+  const axiosSecure = UseAxiosSecure();
 
   const serviceCenters = useLoaderData();
   const uniqueRegions = [...new Set(serviceCenters.map((w) => w.region))];
@@ -157,7 +160,23 @@ const SendParcel = () => {
           creation_date: currentDateTime.formatted,
         };
         console.log("Saving to DB:", parcelWithDate);
-        Swal.fire("Success!", "Parcel info has been saved.", "success");
+
+        axiosSecure.post("/parcels", parcelWithDate)
+        .then(res => {
+          console.log("Parcel with data", res?.data);
+
+          if(res?.data?.insertedId) {
+
+            // TODO payment page
+            Swal.fire({
+              title: "Redirecting...",
+              text: "Proceding to payment gateway",
+              icon: "success",
+              timer: 1500,
+              showConfirmButton: false
+            })
+          }
+        })
       }
     });
   };
