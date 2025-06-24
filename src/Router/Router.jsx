@@ -9,6 +9,7 @@ import Registar from "../Pages/Registar/Registar";
 import PrivetRouts from "../Routs/PrivetRouts";
 import Coverage from "../Pages/Coverage/Coverage";
 import Loader from "../Components/Loader/Loader";
+import SendParcel from "../Pages/SendParcel/SendParcel";
 
 
 export const router = createBrowserRouter([
@@ -25,6 +26,14 @@ export const router = createBrowserRouter([
         loader: () => fetch("./area.json"),
         hydrateFallbackElement: <Loader></Loader>,
         element: <Coverage></Coverage>,
+      },
+      {
+        path: "/SendParcel",
+        loader: () => fetch("./area.json"),
+        hydrateFallbackElement: <Loader></Loader>,
+        element: <PrivetRouts>
+          <SendParcel></SendParcel>
+        </PrivetRouts>
       }
     ]
   },
@@ -40,7 +49,7 @@ export const router = createBrowserRouter([
         path: "/registar",
         Component: Registar,
       },
-      
+
     ]
   }
 ]);

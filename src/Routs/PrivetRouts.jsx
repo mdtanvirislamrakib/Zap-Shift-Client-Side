@@ -12,11 +12,11 @@ const PrivetRouts = ({ children }) => {
         return <Loader></Loader>
     }
 
-    if (user && user?.email) {
-        return children;
+    if (!user) {
+        return <Navigate to={"/login"}></Navigate>;
     }
-    
-    return <Navigate to={"/login"}></Navigate>
+
+    return children;
 
 
 };
