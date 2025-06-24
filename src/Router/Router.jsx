@@ -10,6 +10,8 @@ import PrivetRouts from "../Routs/PrivetRouts";
 import Coverage from "../Pages/Coverage/Coverage";
 import Loader from "../Components/Loader/Loader";
 import SendParcel from "../Pages/SendParcel/SendParcel";
+import DashBoardLayout from "../DashBoardLayout/DashBoardLayout";
+import MyParcels from "../Pages/DashBoard/MyParcels";
 
 
 export const router = createBrowserRouter([
@@ -34,7 +36,7 @@ export const router = createBrowserRouter([
         element: <PrivetRouts>
           <SendParcel></SendParcel>
         </PrivetRouts>
-      }
+      },
     ]
   },
   {
@@ -50,6 +52,18 @@ export const router = createBrowserRouter([
         Component: Registar,
       },
 
+    ]
+  },
+  {
+    path: "/dashboard",
+    element: //<PrivetRouts>
+      <DashBoardLayout></DashBoardLayout>,
+    // </PrivetRouts>
+    children: [
+      {
+        path: "myparcels",
+        Component: MyParcels
+      }
     ]
   }
 ]);
