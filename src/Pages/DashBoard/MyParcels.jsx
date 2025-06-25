@@ -5,12 +5,14 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import ParcelTable from "../../Components/ParcelTable/ParcelTable";
 import Loader from "../../Components/Loader/Loader";
+import { useNavigate } from "react-router";
 // import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner"; // Assuming you have a spinner component
 
 const MyParcels = () => {
     const { user } = UseAuth();
     const axiosSecure = UseAxiosSecure();
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     // Fetch parcels data
     const {
@@ -53,12 +55,9 @@ const MyParcels = () => {
         });
     };
 
-    const handlePay = (parcel) => {
-        Swal.fire({
-            title: "Payment",
-            text: `Payment initiated for ৳${parcel.delivery_cost}`,
-            icon: "success",
-        });
+    const handlePay = (id) => {
+        console.log(id);
+        navigate(`/dashboard/payment/${id}`)
     };
 
     const handleDelete = async (parcel) => {

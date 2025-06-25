@@ -56,7 +56,7 @@ const ParcelTable = ({ parcels, onView, onPay, onDelete, onDetails }) => {
                 </button>
                 <button
                   className="btn btn-sm btn-success"
-                  onClick={() => onPay(parcel)}
+                  onClick={() => onPay(parcel._id)}
                   title="Pay"
                 >
                   <FaMoneyBill />
