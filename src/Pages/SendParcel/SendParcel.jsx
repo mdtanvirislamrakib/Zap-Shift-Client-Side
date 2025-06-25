@@ -163,7 +163,6 @@ const SendParcel = () => {
 
         axiosSecure.post("/parcels", parcelWithDate)
         .then(res => {
-          console.log("Parcel with data", res?.data);
 
           if(res?.data?.insertedId) {
 

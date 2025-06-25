@@ -1,6 +1,6 @@
 import React from "react";
 import ProfastLogo from "../../Shared/ProFastLogo/ProfastLogo";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import UseAuth from "../../Hooks/UseAuth";
@@ -13,6 +13,9 @@ const Registar = () => {
 
     const navigate = useNavigate();
 
+    const location = useLocation();
+    const from = location?.pathname?.from || "/";
+
 
     const onSubmit = data => {
         console.log(data);
@@ -20,7 +23,7 @@ const Registar = () => {
             .then(result => {
                 console.log(result?.user);
                 if(result?.user?.email) {
-                    navigate("/")
+                    navigate(from)
                 }
 
             })
