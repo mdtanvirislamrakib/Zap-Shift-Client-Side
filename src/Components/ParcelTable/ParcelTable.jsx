@@ -31,11 +31,10 @@ const ParcelTable = ({ parcels, onView, onPay, onDelete, onDetails }) => {
               {/* Payment Status with Color Badge */}
               <td>
                 <span
-                  className={`badge ${
-                    parcel.payment_status === "paid"
+                  className={`badge ${parcel.payment_status === "paid"
                       ? "badge-success"
                       : "badge-error"
-                  }`}
+                    }`}
                 >
                   {parcel.payment_status}
                 </span>
@@ -54,13 +53,16 @@ const ParcelTable = ({ parcels, onView, onPay, onDelete, onDetails }) => {
                 >
                   <FaEye />
                 </button>
-                <button
-                  className="btn btn-sm btn-success"
-                  onClick={() => onPay(parcel._id)}
-                  title="Pay"
-                >
-                  <FaMoneyBill />
-                </button>
+                {
+                  parcel?.payment_status == "unpaid" && <button
+                    className="btn btn-sm btn-success"
+                    onClick={() => onPay(parcel._id)}
+                    title="Pay"
+                  >
+                    <FaMoneyBill />
+                  </button>
+                }
+
                 <button
                   className="btn btn-sm btn-primary"
                   onClick={() => onDetails(parcel)}
