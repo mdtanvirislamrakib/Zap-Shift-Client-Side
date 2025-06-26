@@ -38,6 +38,8 @@ const DashBoardLayout = () => {
                     <ProfastLogo></ProfastLogo>
                     <li><NavLink to={"/"}>Home</NavLink></li>
                     <li><NavLink to={"myparcels"}>My Parcels</NavLink></li>
+                    <li><NavLink to={"paymentHistory"}>Payment History</NavLink></li>
+                    <li><NavLink to={"track"}>Track A packege</NavLink></li>
                 </ul>
             </div>
         </div>
