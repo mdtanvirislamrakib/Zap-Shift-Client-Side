@@ -22,9 +22,10 @@ const PendingRiders = () => {
         return "....loading"
     }
 
-    const handleDecision = async (id, decision) => {
+    const handleDecision = async (id, decision, email) => {
         try {
-            const res = await axiosSecure.patch(`/riders/${id}/status`, { status: decision });
+            const res = await axiosSecure.patch(`/riders/${id}/status`, { status: decision, email: email });
+            
             if (res.data.modifiedCount > 0) {
                 Swal.fire({
                     icon: "success",
@@ -34,6 +35,7 @@ const PendingRiders = () => {
                 });
                 refetch()
                 setSelectedRider(null);
+            console.log("Active");
             }
         } catch (error) {
             console.error("Failed to update status", error);
@@ -108,13 +110,13 @@ const PendingRiders = () => {
 
                         <div className="mt-6 flex justify-end gap-4">
                             <button
-                                onClick={() => handleDecision(selectedRider._id, "active")}
+                                onClick={() => handleDecision(selectedRider._id, "active", selectedRider.email)}
                                 className="btn bg-green-600 text-white hover:bg-green-700"
                             >
                                 <FaCheckCircle className="mr-1" /> Approve
                             </button>
                             <button
-                                onClick={() => handleDecision(selectedRider._id, "rejected")}
+                                onClick={() => handleDecision(selectedRider._id, "rejected", selectedRider.email)}
                                 className="btn bg-red-600 text-white hover:bg-red-700"
                             >
                                 <FaTimesCircle className="mr-1" /> Reject
