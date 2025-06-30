@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import ProfastLogo from '../Shared/ProFastLogo/ProfastLogo';
+import { FaHome, FaBox, FaMoneyBillWave, FaMapMarkedAlt, FaMotorcycle, FaClock } from "react-icons/fa";
 
 const DashBoardLayout = () => {
     return (
@@ -36,10 +37,36 @@ const DashBoardLayout = () => {
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                     {/* Sidebar content here */}
                     <ProfastLogo></ProfastLogo>
-                    <li><NavLink to={"/"}>Home</NavLink></li>
-                    <li><NavLink to={"myparcels"}>My Parcels</NavLink></li>
-                    <li><NavLink to={"paymentHistory"}>Payment History</NavLink></li>
-                    <li><NavLink to={"track"}>Track A packege</NavLink></li>
+                    <li>
+                        <NavLink to="/">
+                            <FaHome className="mr-2" /> Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="myparcels">
+                            <FaBox className="mr-2" /> My Parcels
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="paymentHistory">
+                            <FaMoneyBillWave className="mr-2" /> Payment History
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="track">
+                            <FaMapMarkedAlt className="mr-2" /> Track a Package
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="activeRiders">
+                            <FaMotorcycle className="mr-2" /> Active Riders
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="pendingRiders">
+                            <FaClock className="mr-2" /> Pending Riders
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </div>
