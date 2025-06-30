@@ -15,6 +15,7 @@ import MyParcels from "../Pages/DashBoard/MyParcels";
 import Payment from "../Pages/DashBoard/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import TrackParcel from "../Pages/DashBoard/TrackParcel/TrackParcel";
+import BeARider from "../Pages/DashBoard/BeARider/BeARider";
 
 
 export const router = createBrowserRouter([
@@ -30,7 +31,17 @@ export const router = createBrowserRouter([
         path: '/coverage',
         loader: () => fetch("./area.json"),
         hydrateFallbackElement: <Loader></Loader>,
-        element: <Coverage></Coverage>,
+        element: <PrivetRouts>
+          <Coverage></Coverage>
+        </PrivetRouts>,
+      },
+      {
+        path: '/beARider',
+        element: <PrivetRouts>
+          <BeARider></BeARider>
+        </PrivetRouts>,
+        loader: () => fetch("./area.json"),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/SendParcel",
