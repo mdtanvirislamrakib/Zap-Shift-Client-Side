@@ -7,7 +7,6 @@ import useUserRole from '../Hooks/useUserRole';
 const DashBoardLayout = () => {
 
     const { role, isLoading } = useUserRole()
-    console.log(role, "Hi hi hi hi", isLoading);
 
     return (
         <div className="drawer lg:drawer-open">
@@ -80,6 +79,12 @@ const DashBoardLayout = () => {
                                     <FaUserShield /> Make Admin
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="assign-rider">
+                                    <FaMotorcycle /> Assign Rider
+                                </NavLink>
+                            </li>
+
 
                         </>
                     }
