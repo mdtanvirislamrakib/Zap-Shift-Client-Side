@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import ProfastLogo from '../Shared/ProFastLogo/ProfastLogo';
-import { FaHome, FaBox, FaMoneyBillWave, FaMapMarkedAlt, FaMotorcycle, FaClock } from "react-icons/fa";
+import { FaHome, FaBox, FaMoneyBillWave, FaMapMarkedAlt, FaMotorcycle, FaClock, FaUserShield } from "react-icons/fa";
 
 const DashBoardLayout = () => {
     return (
@@ -65,6 +65,11 @@ const DashBoardLayout = () => {
                     <li>
                         <NavLink to="pendingRiders">
                             <FaClock className="mr-2" /> Pending Riders
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="make-admin">
+                            <FaUserShield /> Make Admin
                         </NavLink>
                     </li>
                 </ul>
